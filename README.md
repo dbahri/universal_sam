@@ -6,7 +6,7 @@ It was created by cloning the [codebase](https://github.com/Mi-Peng/Sparse-Sharp
 ## Installation
 - Clone this repo
 ```bash
-git clone git@github.com:dbahri/universal_sam.git
+git clone https://github.com/dbahri/universal_sam.git
 cd universal_sam
 ```
 
@@ -27,36 +27,36 @@ For other datasets, replace 'CIFAR10_base' with 'CIFAR100_base' or 'SVHN_base'. 
 
 Frob-SAM
 ```bash
-python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'frosam-sgd' --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 1 --seed 101 --weight_decay 5e-4 --isam_rho 0.005 --isam_lam 0.005 --isam_n_samples 2 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_frobsam
+python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'frosam-sgd' --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 200 --seed 101 --weight_decay 5e-4 --isam_rho 0.005 --isam_lam 0.005 --isam_n_samples 2 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_frobsam
 ```
 Det-SAM
 ```bash
-python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'isam-sgd' --isam_n_samples 1 --isam_setting 'det' --isam_lam 1. --isam_rho 1.0 --isam_half_cube_len 0.01 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 1 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_detsam
+python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'isam-sgd' --isam_n_samples 1 --isam_setting 'det' --isam_lam 1. --isam_rho 1.0 --isam_half_cube_len 0.01 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 200 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_detsam
 ```
 
 Trace-SAM
 ```bash
-python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'isam-sgd' --isam_n_samples 1 --isam_setting 'trace' --isam_lam 1. --isam_rho 0.01 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 1 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_tracesam
+python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'isam-sgd' --isam_n_samples 1 --isam_setting 'trace' --isam_lam 1. --isam_rho 0.01 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 200 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_tracesam
 ```
 
 ASAM
 ```bash
-python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'sam-sgd' --rho 0.5  --sam_variant 'asam' --asam_eta 0.01 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 1 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_asam
+python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'sam-sgd' --rho 0.5  --sam_variant 'asam' --asam_eta 0.01 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 200 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_asam
 ```
 
 SAM
 ```bash
-python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'sam-sgd'  --rho 0.05 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 1 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_sam
+python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'sam-sgd'  --rho 0.05 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 200 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_sam
 ```
 
 SGD
 ```bash
-python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'sgd' --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 1 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_sgd
+python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'sgd' --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 200 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_sgd
 ```
 
 SSAM
 ```bash
-python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'ssamf-sgd' --rho 0.1 --sparsity 0.5 --num_samples 16 --update_freq 1 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 1 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_ssam
+python train.py --milestone '50|100|150' --model resnet18 --dataset 'CIFAR10_base' --opt 'ssamf-sgd' --rho 0.1 --sparsity 0.5 --num_samples 16 --update_freq 1 --lr 0.1 --lr_scheduler 'MultiStepLRscheduler' --epochs 200 --seed 101 --weight_decay 5e-4 --frac_samples 1. --frac_corrupt 0. --gamma 0.1 --datadir /tmp/cifar10_data --device 'cuda:0' --save_dir /tmp/cifar10_ssam
 ```
 
 ## Train on MNIST
